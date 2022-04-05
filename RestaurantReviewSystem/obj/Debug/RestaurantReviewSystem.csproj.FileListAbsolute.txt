@@ -1,7 +1,0 @@
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\bin\Debug\RestaurantReviewSystem.dll.config
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\bin\Debug\RestaurantReviewSystem.dll
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\bin\Debug\RestaurantReviewSystem.pdb
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\obj\Debug\RestaurantReviewSystem.csproj.AssemblyReference.cache
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\obj\Debug\RestaurantReviewSystem.csproj.CoreCompileInputs.cache
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\obj\Debug\RestaurantReviewSystem.dll
-C:\Users\GM\source\repos\RestaurantReviewSystem\RestaurantReviewSystem\obj\Debug\RestaurantReviewSystem.pdb

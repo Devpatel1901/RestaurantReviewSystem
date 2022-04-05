@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RestaurantReviewSystem_WebClient.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href=”css/bootstrap.min.css” rel=”stylesheet”>
+    <link rel="stylesheet" href="Content/MyCss/navbar.css" />
+    <link rel="stylesheet" href="Content/MyCss/searchBar-sitemaster.css" />
+
+</head>
+<body>
+    <script src=”js/jquery-3.3.1.min.js”></script>
+    <script src=”js/popper.min.js”></script>
+    <script src=”js/bootstrap.min.js”></script>
+    <script src="Content/MyJs/navbar.js"></script>
+
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        
+        <div class="navbar navbar-default navbar-fixed-top navbar-shrink" style="margin-bottom:10px">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand page-scroll" runat="server" href="~/">Restaurant Review</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="hidden active">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="">
+                            <a class="page-scroll" runat="server" href="~/About">About</a>
+                        </li>
+                        <li class="">
+                            <a class="page-scroll" runat="server" href="~/Contact">Contact</a>
+                        </li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a runat="server" href="~/Account/Manage" title="Manage your account">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                        </svg>
+                                        &nbsp;&nbsp
+                                        <%: Context.User.Identity.GetUserName()  %> !
+                                    </a>
+                                </li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                                <%
+                                    if(Context.User.Identity.GetUserName()=="admin@admin.com")
+                                    {%>
+                                          <li class="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Operations <b class="caret"></b></a>
+                                              <ul class="dropdown-menu" >
+                                                <li><a runat="server" href="~/Restaurant/Add" style="color:black">Add Restaurant</a></li>
+                                                <%--<li class="divider"></li>--%>
+                                              </ul>
+                                            </li>
+                                    <%}
+                                %>
+                                
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+
+
+        <%--<div class="container body-content" style="margin-top:20px">--%>
+        <div class="body-content" style="padding:20px">
+
+
+            <div style="margin:10px;padding:5px;display:flex;justify-content:end;">
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="searchInput"  placeholder="Search Restraurant By ID"></asp:TextBox>
+                <asp:Button ID="SearchButton" runat="server" CssClass="action-button searchButton" Text="Search" OnClick="SearchButton_Click" />
+            </div>
+            <div style="display:flex;justify-content:end">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" ControlToValidate="TextBox1" runat="server" ErrorMessage="Use Only Number..." ViewStateMode="Inherit" ValidationExpression="[0-9]+"></asp:RegularExpressionValidator>
+            </div>
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Restaurant Review System</p>
+            </footer>
+
+        </div>
+    </form>
+</body>
+</html>

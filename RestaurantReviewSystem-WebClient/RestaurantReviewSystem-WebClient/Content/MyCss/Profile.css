@@ -1,0 +1,49 @@
+﻿.input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 10px 0px 10px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+.label {
+    background-color: dodgerblue;
+    color: white;
+    font-size: 17px;
+}
+
+.action-button {
+    width: 85px;
+    font-weight: bold;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 0px 10px 5px;
+    float: right;
+    display: flex;
+    justify-content: center;
+}
+
+.button1 {
+    background: #673AB7;
+    color: white;
+}
+
+button1:hover,
+button1:focus {
+    background-color: lightgreen
+}
+
+.button2 {
+    background: green;
+    color: white;
+}
+
+button2:hover,
+button2:focus {
+    background-color: lightgreen
+}
